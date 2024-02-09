@@ -3,10 +3,16 @@ class RapidTestOrder {
     this.OrderState = {
       WELCOMING: () => {
         let aReturn = [];
-        this.stateCur = this.OrderState.RESERVING;
-        aReturn.push("Welcome to Rich's Rapid Test.");
-        aReturn.push("Would you like to reserve a rapid test kit?");
+        this.stateCur = this.OrderState.SIZE;
+        aReturn.push("Welcome to Andy's Legendary Pizza Plattsville!");
+        aReturn.push("Would you like to place an order?");
         return aReturn;
+      },
+      SIZE: () =>{
+        let aReturn = [];
+        this.stateCur = this.OrderState.RESERVING;
+        aReturn.push("What toppings would you like? We have baccon, peperoni, onions and hawaian");
+        aReturn.push("We have Hawaiian and Meat Lover's pizza")
       },
       RESERVING: (sInput) => {
         let aReturn = [];
@@ -15,9 +21,9 @@ class RapidTestOrder {
           aReturn.push(`Your rapid test is reserved under the phone number ${this.sFrom}`);
           let d = new Date();
           d.setMinutes(d.getMinutes() + 120);
-          aReturn.push(`Please pick it up at 123 Tidy St., Acton before ${d.toTimeString()}`);
+          aReturn.push(`Please pick it up at 43 Albert St W, Plattsville., Acton before ${d.toTimeString()}`);
         } else {
-          aReturn.push("Thanks for trying our reservation system");
+          aReturn.push("Thanks for trying our online chat bot!");
           aReturn.push("Maybe next time")
         }
         return aReturn;
